@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* CSS styles go here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input[type=text], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #2f00ff;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #2f00ff;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .popup-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>Invalid Username or Password</h3>
+      <p>Please try again.</p>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code goes here
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get the username and password values
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Perform your login logic here
+      // For example, you can make an AJAX request to a server-side script
+      // to authenticate the user
+
+      // In this example, we'll just check if the username and password match
+      if (username === 'azka' && password === '12345') {
+        // Redirect the user to the dashboard page
+        window.location.href = 'figmatohtml.html';
+      } else {
+        // Show the popup
+        document.getElementById('popup').style.display = 'block';
+      }
+    });
+
+    // Close the popup when the "Close" button is clicked
+    document.getElementById('closePopup').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
